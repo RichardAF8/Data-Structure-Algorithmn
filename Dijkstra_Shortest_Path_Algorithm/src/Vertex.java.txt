@@ -1,0 +1,76 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Vertex implements Comparable<Vertex> {
+	boolean visited;
+	List<Integer> edges;
+	// keeps track of prev node during shortest path search
+	Vertex prev;
+	String name;
+	int zip, distance;
+
+	Vertex(int zip, String name) {
+		this.zip = zip;
+		this.name = name;
+		this.visited = false;
+		this.distance=0;
+		edges = new ArrayList<>();
+	}
+
+	public void setEdge(int index, int distance) {
+		while (edges.size() <= index) {
+			edges.add(0);
+		}
+		edges.set(index, distance);
+	}
+
+	public void clearEdges() {
+		edges.clear();
+	}
+
+	public void setDistance(int distance) {
+		this.distance = distance;
+	}
+
+	@Override
+	public int compareTo(Vertex o) {
+		if (o.distance > this.distance) {
+			return -1;
+		} else if (o.distance < this.distance) {
+			return 1;
+		}
+		return 0;
+	}
+
+	public boolean isVisited() {
+		return visited;
+	}
+
+	public void setVisited(boolean visited) {
+		this.visited = visited;
+	}
+
+	public Vertex getPrev() {
+		return prev;
+	}
+
+	public void setPrev(Vertex prev) {
+		this.prev = prev;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getDistance() {
+		return distance;
+	}
+
+	public int getZip() {
+		return this.zip;
+	}
+}

@@ -1,0 +1,229 @@
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
+//auto-reize at the end
+public class Graph {
+	Vertex[] vertices;
+	PriorityQueue<Vertex> q;
+	int size, items;
+	String list;
+
+	Graph() {
+		// starts with size 10 and then re-sizes
+		this.size = 10;
+		vertices = new Vertex[size];
+		Arrays.fill(vertices, null);
+		this.items = 0;
+	}
+
+	// check load factor
+	public boolean isOverLoaded() {
+		return this.getLoadFactor() < 0.7 ? false : true;
+	}
+
+	public double getLoadFactor() {
+		return (double) items / size;
+	}
+
+	public void insertVertex(Vertex v) {
+
+		int x = 0;
+		// linear probing
+		while (true) {
+			if (vertices[hash(x + v.getZip())] == null) {
+				vertices[hash(x + v.getZip())] = v;
+				items++;
+				break;
+			}
+			x++;
+		}
+		// re-size the graph is load factor above 0.7
+		if (this.isOverLoaded()) {
+			re_size();
+		}
+
+	}
+
+	// re-sizes graph if overLoaded
+	public void re_size() {
+		this.size = (int) (size * 1.5);
+		this.items = 0;
+
+		Queue<Vertex> q = new LinkedList<>();
+		for (Vertex n : this.vertices) {
+			if (n != null) {
+				q.add(n);
+			}
+		}
+
+		this.vertices = new Vertex[this.size];
+
+		while (!q.isEmpty()) {
+			this.insertVertex(q.poll());
+		}
+
+	}
+
+	public void addEdge(Vertex a, Vertex b, int length) {
+		int[] nums = { 0, 0, 0, 0, 0 };
+		// 1st constant for linear probing
+		// 2nd number of vertex found
+		// 3rd vertex a location
+		// 4th vertex b location
+		// 5th counts number of iterations
+
+		while (nums[1] < 2) {
+
+			if (vertices[hash(a.getZip() + nums[0])] != null && vertices[hash(a.getZip() + nums[0])].equals(a)) {
+				nums[2] = hash(a.getZip() + nums[0]);
+				nums[1]++;
+			}
+			if (vertices[hash(b.getZip() + nums[0])] != null && vertices[hash(b.getZip() + nums[0])].equals(b)) {
+				nums[3] = hash(b.getZip() + nums[0]);
+				nums[1]++;
+			}
+
+			nums[0]++;
+			nums[4]++;
+			// stops if search through entire array
+			if (nums[4] > size) {
+				return;
+			}
+		}
+
+		vertices[nums[2]].setEdge(nums[3], length);
+		vertices[nums[3]].setEdge(nums[2], length);
+
+	}
+
+	// creates hash-key
+	private int hash(int key) {
+		return key % size;
+	}
+    
+	//prints Matrix Values
+	public String printMatrix() {
+		String matrix = "";
+		for (int x = size - 1; x >= 0; x--) {
+			if (vertices[x] != null) {
+				matrix += vertices[x].getName() + ": ";
+				if (vertices[x].edges.size() > 0) {
+					for (int y : vertices[x].edges) {
+						matrix += y + " ";
+					}
+				}
+				matrix += "\n";
+			}
+
+		}
+		return matrix;
+	}
+
+	public String depth_first_traversal(Vertex a) {
+		list = "";
+		traversal(a);
+		resetVisited();
+		return list;
+	}
+
+	private String traversal(Vertex a) {
+		a.setVisited(true);
+		list += a.getName() + " ";
+		for (int x = 0; x < a.edges.size(); x++) {
+			if ((a.edges.get(x) > 0) && (vertices[x].isVisited() == false)) {
+				traversal(vertices[x]);
+			}
+		}
+		return list;
+	}
+
+	public String bredth_first_traversal(Vertex a) {
+		list = "";
+		Vertex temp;
+		Queue<Vertex> q2 = new LinkedList();
+		a.setVisited(true);
+		q2.add(a);
+		while (q2.size() > 0) {
+			temp = q2.poll();
+
+			list += temp.getName() + " ";
+			for (int x = 0; x < temp.edges.size(); x++) {
+
+				if ((temp.edges.get(x) > 0) && (vertices[x].isVisited() == false)) {
+
+					vertices[x].setVisited(true);
+					q2.add(vertices[x]);
+				}
+			}
+		}
+		resetVisited();
+		return list;
+	}
+
+	public void resetVisited() {
+		for (int x = 0; x < size; x++) {
+			if (vertices[x] != null && vertices[x].isVisited()) {
+				vertices[x].setVisited(false);
+			}
+		}
+	}
+
+	public String shortestPath(Vertex start, Vertex end) {
+		if (start.equals(end)) {
+			list = start.getName();
+			return list;
+		}
+		int distance;
+		start.setDistance(0);
+		start.setPrev(null);
+		start.setVisited(true);
+		q = new PriorityQueue<Vertex>();
+		q.add(start);
+		Vertex temp;
+
+		while (q.size() > 0) {
+			temp = q.poll();
+			for (int x = 0; x < temp.edges.size(); x++) {
+				if (temp.edges.get(x) > 0) {
+					distance = temp.edges.get(x) + temp.getDistance();
+					if ((!vertices[x].isVisited()) && (Integer.MAX_VALUE > distance)) {
+						// checks if distance to node from current is less than infinity
+
+						vertices[x].setDistance(distance);
+						vertices[x].setVisited(true);
+						vertices[x].setPrev(temp);
+
+						q.add(vertices[x]);
+
+					} else if (vertices[x].getDistance() > distance) {
+						// check to see if shorter path found
+						vertices[x].setDistance(distance);
+						vertices[x].setPrev(temp);
+					}
+
+				} // end of if statment
+
+			} // end of for loop
+
+		} // end while loop
+		
+		list = "Shortest Path From vert "+start.getName()+" to vert "+end.getName()+
+				"\nDistance: " + end.getDistance() + "\nPath Taken: ";
+		pathTaken(end);
+		resetVisited();
+		list+="\n";
+		return list;
+	}
+
+	public void pathTaken(Vertex a) {
+		if (a.getPrev() == null) {
+			list += a.getName();
+			return;
+		}
+		pathTaken(a.getPrev());
+		list += "->" + a.getName();
+	}
+
+}

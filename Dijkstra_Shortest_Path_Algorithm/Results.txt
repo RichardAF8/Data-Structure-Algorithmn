@@ -1,0 +1,298 @@
+Question 1
+Shortest Path From vert 1 to vert 37
+Distance: 22
+Path Taken: 1->5->25->28->32->36->35->37
+
+Question 2
+Shortest Path From vert 14 to vert 23
+Distance: 25
+Path Taken: 14->11->12->13->10->30->37->23
+
+
+
+Bonus from point 1
+
+Shortest Path From vert 1 to vert 0
+Distance: 8
+Path Taken: 1->0
+
+Shortest Path From vert 1 to vert 2
+Distance: 16
+Path Taken: 1->0->2
+
+Shortest Path From vert 1 to vert 3
+Distance: 21
+Path Taken: 1->0->2->3
+
+Shortest Path From vert 1 to vert 4
+Distance: 14
+Path Taken: 1->5->8->4
+
+Shortest Path From vert 1 to vert 5
+Distance: 8
+Path Taken: 1->5
+
+Shortest Path From vert 1 to vert 6
+Distance: 16
+Path Taken: 1->5->6
+
+Shortest Path From vert 1 to vert 7
+Distance: 12
+Path Taken: 1->0->7
+
+Shortest Path From vert 1 to vert 8
+Distance: 9
+Path Taken: 1->5->8
+
+Shortest Path From vert 1 to vert 9
+Distance: 20
+Path Taken: 1->0->7->11->12->13->9
+
+Shortest Path From vert 1 to vert 10
+Distance: 22
+Path Taken: 1->0->7->11->12->13->10
+
+Shortest Path From vert 1 to vert 11
+Distance: 13
+Path Taken: 1->0->7->11
+
+Shortest Path From vert 1 to vert 12
+Distance: 15
+Path Taken: 1->0->7->11->12
+
+Shortest Path From vert 1 to vert 13
+Distance: 17
+Path Taken: 1->0->7->11->12->13
+
+Shortest Path From vert 1 to vert 14
+Distance: 12
+Path Taken: 1->0->14
+
+Shortest Path From vert 1 to vert 15
+Distance: 23
+Path Taken: 1->0->7->11->12->15
+
+Shortest Path From vert 1 to vert 16
+Distance: 21
+Path Taken: 1->0->7->11->12->16
+
+Shortest Path From vert 1 to vert 17
+Distance: 22
+Path Taken: 1->0->2->3->17
+
+Shortest Path From vert 1 to vert 20
+Distance: 16
+Path Taken: 1->0->20
+
+Shortest Path From vert 1 to vert 21
+Distance: 17
+Path Taken: 1->0->20->21
+
+Shortest Path From vert 1 to vert 22
+Distance: 15
+Path Taken: 1->5->25->22
+
+Shortest Path From vert 1 to vert 23
+Distance: 23
+Path Taken: 1->5->25->22->23
+
+Shortest Path From vert 1 to vert 24
+Distance: 18
+Path Taken: 1->0->20->21->24
+
+Shortest Path From vert 1 to vert 25
+Distance: 14
+Path Taken: 1->5->25
+
+Shortest Path From vert 1 to vert 26
+Distance: 21
+Path Taken: 1->5->25->26
+
+Shortest Path From vert 1 to vert 27
+Distance: 20
+Path Taken: 1->5->25->28->27
+
+Shortest Path From vert 1 to vert 28
+Distance: 15
+Path Taken: 1->5->25->28
+
+Shortest Path From vert 1 to vert 29
+Distance: 20
+Path Taken: 1->5->25->29
+
+Shortest Path From vert 1 to vert 30
+Distance: 21
+Path Taken: 1->5->25->29->30
+
+Shortest Path From vert 1 to vert 31
+Distance: 20
+Path Taken: 1->5->25->28->31
+
+Shortest Path From vert 1 to vert 32
+Distance: 16
+Path Taken: 1->5->25->28->32
+
+Shortest Path From vert 1 to vert 33
+Distance: 20
+Path Taken: 1->5->25->28->32->33
+
+Shortest Path From vert 1 to vert 34
+Distance: 17
+Path Taken: 1->0->20->34
+
+Shortest Path From vert 1 to vert 35
+Distance: 21
+Path Taken: 1->5->25->28->32->36->35
+
+Shortest Path From vert 1 to vert 36
+Distance: 17
+Path Taken: 1->5->25->28->32->36
+
+Shortest Path From vert 1 to vert 37
+Distance: 22
+Path Taken: 1->5->25->28->32->36->35->37
+
+
+
+Bonus from point 14
+
+Shortest Path From vert 14 to vert 0
+Distance: 4
+Path Taken: 14->0
+
+Shortest Path From vert 14 to vert 1
+Distance: 12
+Path Taken: 14->0->1
+
+Shortest Path From vert 14 to vert 2
+Distance: 12
+Path Taken: 14->0->2
+
+Shortest Path From vert 14 to vert 3
+Distance: 16
+Path Taken: 14->11->12->16->17->3
+
+Shortest Path From vert 14 to vert 4
+Distance: 10
+Path Taken: 14->11->7->4
+
+Shortest Path From vert 14 to vert 5
+Distance: 15
+Path Taken: 14->11->8->5
+
+Shortest Path From vert 14 to vert 6
+Distance: 14
+Path Taken: 14->0->2->6
+
+Shortest Path From vert 14 to vert 7
+Distance: 7
+Path Taken: 14->11->7
+
+Shortest Path From vert 14 to vert 8
+Distance: 14
+Path Taken: 14->11->8
+
+Shortest Path From vert 14 to vert 9
+Distance: 13
+Path Taken: 14->11->12->13->9
+
+Shortest Path From vert 14 to vert 10
+Distance: 15
+Path Taken: 14->11->12->13->10
+
+Shortest Path From vert 14 to vert 11
+Distance: 6
+Path Taken: 14->11
+
+Shortest Path From vert 14 to vert 12
+Distance: 8
+Path Taken: 14->11->12
+
+Shortest Path From vert 14 to vert 13
+Distance: 10
+Path Taken: 14->11->12->13
+
+Shortest Path From vert 14 to vert 15
+Distance: 16
+Path Taken: 14->11->12->15
+
+Shortest Path From vert 14 to vert 16
+Distance: 14
+Path Taken: 14->11->12->16
+
+Shortest Path From vert 14 to vert 17
+Distance: 15
+Path Taken: 14->11->12->16->17
+
+Shortest Path From vert 14 to vert 20
+Distance: 12
+Path Taken: 14->0->20
+
+Shortest Path From vert 14 to vert 21
+Distance: 13
+Path Taken: 14->0->20->21
+
+Shortest Path From vert 14 to vert 22
+Distance: 22
+Path Taken: 14->11->8->5->25->22
+
+Shortest Path From vert 14 to vert 23
+Distance: 25
+Path Taken: 14->11->12->13->10->30->37->23
+
+Shortest Path From vert 14 to vert 24
+Distance: 14
+Path Taken: 14->0->20->21->24
+
+Shortest Path From vert 14 to vert 25
+Distance: 21
+Path Taken: 14->11->8->5->25
+
+Shortest Path From vert 14 to vert 26
+Distance: 24
+Path Taken: 14->11->12->13->10->30->26
+
+Shortest Path From vert 14 to vert 27
+Distance: 16
+Path Taken: 14->0->20->21->24->27
+
+Shortest Path From vert 14 to vert 28
+Distance: 20
+Path Taken: 14->0->20->21->24->28
+
+Shortest Path From vert 14 to vert 29
+Distance: 20
+Path Taken: 14->11->12->13->10->30->29
+
+Shortest Path From vert 14 to vert 30
+Distance: 19
+Path Taken: 14->11->12->13->10->30
+
+Shortest Path From vert 14 to vert 31
+Distance: 16
+Path Taken: 14->0->20->34->31
+
+Shortest Path From vert 14 to vert 32
+Distance: 20
+Path Taken: 14->0->20->34->31->32
+
+Shortest Path From vert 14 to vert 33
+Distance: 24
+Path Taken: 14->0->20->34->31->32->33
+
+Shortest Path From vert 14 to vert 34
+Distance: 13
+Path Taken: 14->0->20->34
+
+Shortest Path From vert 14 to vert 35
+Distance: 23
+Path Taken: 14->11->12->15->35
+
+Shortest Path From vert 14 to vert 36
+Distance: 21
+Path Taken: 14->0->20->34->31->32->36
+
+Shortest Path From vert 14 to vert 37
+Distance: 23
+Path Taken: 14->11->12->13->10->30->37
+

@@ -1,0 +1,159 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.PriorityQueue;
+
+public class Main {
+	public static void main(String[] args) throws FileNotFoundException {
+
+		Graph graph = new Graph();
+		Vertex[] v = new Vertex[40];
+
+		for (int i = 0; i < 18; i++) {
+			v[i] = new Vertex(i, i + "");
+			graph.insertVertex(v[i]);
+		}
+
+		for (int i = 20; i < 38; i++) {
+			v[i] = new Vertex(i, i + "");
+			graph.insertVertex(v[i]);
+		}
+
+		// 0
+		graph.addEdge(v[0], v[1], 8);
+		graph.addEdge(v[0], v[2], 8);
+		graph.addEdge(v[0], v[7], 4);
+		graph.addEdge(v[0], v[14], 4);
+		graph.addEdge(v[0], v[20], 8);
+		// 1
+		graph.addEdge(v[1], v[5], 8);
+		// 2
+		graph.addEdge(v[2], v[3], 5);
+		graph.addEdge(v[2], v[6], 2);
+		// 3
+		graph.addEdge(v[3], v[17], 1);
+		// 4
+		graph.addEdge(v[4], v[5], 7);
+		graph.addEdge(v[4], v[7], 3);
+		graph.addEdge(v[4], v[8], 5);
+		// 5
+		graph.addEdge(v[5], v[6], 8);
+		graph.addEdge(v[5], v[8], 1);
+		graph.addEdge(v[5], v[25], 6);
+		// 6 All edges added
+		// 7
+		graph.addEdge(v[7], v[11], 1);
+		// 8
+		graph.addEdge(v[8], v[11], 8);
+		graph.addEdge(v[8], v[12], 7);
+		// 9
+		graph.addEdge(v[9], v[10], 6);
+		graph.addEdge(v[9], v[12], 9);
+		graph.addEdge(v[9], v[13], 3);
+		// 10
+		graph.addEdge(v[10], v[13], 5);
+		graph.addEdge(v[10], v[17], 2);
+		graph.addEdge(v[10], v[30], 4);
+		// 11
+		graph.addEdge(v[11], v[12], 2);
+		graph.addEdge(v[11], v[14], 6);
+		// 12
+		graph.addEdge(v[12], v[13], 2);
+		graph.addEdge(v[12], v[15], 8);
+		graph.addEdge(v[12], v[16], 6);
+		// 13
+		graph.addEdge(v[13], v[17], 9);
+		// 14 All edges added
+		// 15
+		graph.addEdge(v[15], v[35], 7);
+		// 16
+		graph.addEdge(v[16], v[17], 1);
+		// 17 All edges added
+
+		// 20
+		graph.addEdge(v[20], v[21], 1);
+		graph.addEdge(v[20], v[24], 3);
+		graph.addEdge(v[20], v[27], 5);
+		graph.addEdge(v[20], v[34], 1);
+		// 21
+		graph.addEdge(v[21], v[24], 1);
+		// 22
+		graph.addEdge(v[22], v[23], 8);
+		graph.addEdge(v[22], v[25], 1);
+		graph.addEdge(v[22], v[26], 8);
+		// 23
+		graph.addEdge(v[23], v[26], 2);
+		graph.addEdge(v[23], v[37], 2);
+		// 24
+		graph.addEdge(v[24], v[27], 2);
+		graph.addEdge(v[24], v[28], 6);
+		// 25
+		graph.addEdge(v[25], v[26], 7);
+		graph.addEdge(v[25], v[28], 1);
+		graph.addEdge(v[25], v[29], 6);
+		// 26
+		graph.addEdge(v[26], v[29], 9);
+		graph.addEdge(v[26], v[30], 5);
+		// 27
+		graph.addEdge(v[27], v[28], 5);
+		graph.addEdge(v[27], v[34], 7);
+		// 28
+		graph.addEdge(v[28], v[31], 5);
+		graph.addEdge(v[28], v[32], 1);
+		// 29
+		graph.addEdge(v[29], v[30], 1);
+		graph.addEdge(v[29], v[33], 5);
+		// 30
+		graph.addEdge(v[30], v[37], 4);
+		// 31
+		graph.addEdge(v[31], v[32], 4);
+		graph.addEdge(v[31], v[34], 3);
+		graph.addEdge(v[31], v[35], 9);
+		// 32
+		graph.addEdge(v[32], v[33], 4);
+		graph.addEdge(v[32], v[36], 1);
+		// 33
+		graph.addEdge(v[33], v[36], 7);
+		// 34 All edges added
+
+		// 35
+		graph.addEdge(v[35], v[36], 4);
+		graph.addEdge(v[35], v[37], 1);
+		// 36 All edges added
+
+		// 37 All edges added
+
+		System.out.println(graph.shortestPath(v[1], v[37]));
+		System.out.println(graph.shortestPath(v[14], v[23]));
+
+		File result = new File("Results.txt");
+
+		PrintWriter f = new PrintWriter(result);
+		f.println("Question 1");
+		f.println(graph.shortestPath(v[1], v[37]));
+		f.println("Question 2");
+		f.println(graph.shortestPath(v[14], v[23]));
+		
+		for (int x = 1; x < 10; x++) {
+			
+			if (x == 2) {
+				x = 14;
+			}
+			f.println("\n\nBonus from point "+x+"\n");
+			for (int i = 0; i < 38; i++) {
+				if (i == 18) {
+					i = 20;
+				}
+				if (((x==1) && (i != 1)) || ((x==14) && (i!=14))) {
+					f.println(graph.shortestPath(v[x], v[i]));
+				}
+			}
+		}
+
+		// starting from 1 and also in a separate calculation starting from 14)
+		f.close();
+
+	}
+
+}
