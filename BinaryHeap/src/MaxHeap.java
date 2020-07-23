@@ -108,7 +108,7 @@ public class MaxHeap {
         
 	//returns the top element of the heap
 	public int peek() {
-		return mHeap.size() < 1?-1: (int) mHeap.get(0);
+		return (int) mHeap.get(0);
 	}
 
 }
