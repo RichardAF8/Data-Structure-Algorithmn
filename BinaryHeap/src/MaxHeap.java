@@ -42,12 +42,16 @@ public class MaxHeap {
 		temp = (int) mHeap.get(mHeap.size() - 1);
 		//removes the last element
 		mHeap.remove(mHeap.size() - 1);
-                //sets first element to the previous last element in the tree
-		mHeap.set(0, temp);
+                
+		//check if removing the final element
+		if (top != temp) {
+			//sets first element to the previous last element in the tree
+			mHeap.set(0, temp);
 		
-		//Moves new top element down until it is in the right place
-		if (mHeap.size() > 1) {
-			bubble_down(0);
+			//Moves new top element down until it is in the right place
+			if (mHeap.size() > 1) {
+				bubble_down(0);
+			}
 		}
 		return top;
 
