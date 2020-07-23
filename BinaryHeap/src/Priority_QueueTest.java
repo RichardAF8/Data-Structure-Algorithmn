@@ -60,6 +60,36 @@ class Priority_QueueTest {
 		
 		//cleared queue
 		arr.clear();
+		arr.enqueue(100);
+		arr.enqueue(200);
+		arr.enqueue(300);
+		arr.dequeue();
+		arr.dequeue();
+		arr.dequeue();
+		assertEquals(arr.printTree() ,"Priority Queue is Empty!");
+		
+		//negative numbers
+		arr.enqueue(-9999);
+		arr.enqueue(-100);
+		
+		assertEquals(arr.frontValue(),-100);
+		
+		arr.enqueue(10);
+		arr.enqueue(5);
+		
+		assertEquals(arr.frontValue(),10);
+		assertEquals(arr.printTree() ,"[10, 5, -100, -9999]");
+		assertEquals(arr.length(),4);
+		
+		arr.dequeue();
+		arr.dequeue();
+		
+		assertEquals(arr.dequeue(),-100);
+		assertEquals(arr.frontValue(),-9999);
+		
+		arr.dequeue();
+		
+		assertEquals(arr.dequeue(),-1);
 		assertEquals(arr.printTree() ,"Priority Queue is Empty!");
 		
 	}	
