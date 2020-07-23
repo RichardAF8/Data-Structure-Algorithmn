@@ -3,17 +3,20 @@ public class AVLT {
 	public Node root,newNode,tempNode;
 	private int size, left, right;
     public String text;
-    
+        
+	//constructor
 	public AVLT() {
 		root = null;
 		size = 0;
 	}
-
+        
+	//insert function
 	public void insert(int key) {
 		root = insert2(root, key);
 	}
-
+        //private insert function
 	private Node insert2(Node node, int key) {
+		//inserts at empty spot of if key is already present
 		if (node == null || node.key == key) {
 			node = new Node(key);
 			node.height = 0;
@@ -26,11 +29,15 @@ public class AVLT {
 			node.right = insert2(node.right, key);
 		}
 		
+		//checks if tree is balanced after insertion
 		return balance(node);
 	}
 	
+	//re-balances tree
 	private Node balance(Node node) {
+		//checks height of node
 		node=updateHeight(node);
+		
 		if (right - left == 2) { // imbalance on right side
 			this.updateHeight(node.right);
 			if (left > right) { // RightLeftImbalance
@@ -55,7 +62,8 @@ public class AVLT {
 		
 		return node;
 	}
-
+	
+        //determines height of a node
 	private Node updateHeight(Node node) {
 		if (node.left == null) {
 			left = -1;
@@ -75,6 +83,7 @@ public class AVLT {
 		return node;
 	}
 	
+	//rotation to re-balance tree
 	private Node leftRotate(Node node) {
 		newNode= node.right;
 		tempNode= newNode.left;
@@ -93,13 +102,15 @@ public class AVLT {
 		
 		return updateHeight(newNode);
 	}
+	//returns a string of the key values in the tree
 	public String toString() {
 		text = "[";
 		print(root);
 		text += " ]";
 		return text.equals("[ ]") ? "AVL Tree is Empty" : text;
 	}
-
+        
+	//In-Order Traversal
 	private void print(Node node) {
 		if (node == null) {
 			return;
