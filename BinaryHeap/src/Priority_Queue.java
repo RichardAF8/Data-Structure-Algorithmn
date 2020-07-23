@@ -19,15 +19,14 @@ public class Priority_Queue {
 	}
 	
 	public int dequeue() {
-		
-		return queue.pop();
+		return queue.size() < 1 ? -1 : queue.pop();
 	}
-	
-	public int length () {
+
+	public int length() {
 		return queue.size();
 	}
-	
+
 	public int frontValue() {
-		return queue.peek();
+		return queue.size() < 1 ? -1 : queue.peek();
 	}
 }
