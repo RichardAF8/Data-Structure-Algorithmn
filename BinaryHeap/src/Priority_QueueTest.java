@@ -90,6 +90,7 @@ class Priority_QueueTest {
 		arr.dequeue();
 		
 		assertEquals(arr.dequeue(),-1);
+		assertEquals(arr.frontValue(),-1);
 		assertEquals(arr.printTree() ,"Priority Queue is Empty!");
 		
 	}	
