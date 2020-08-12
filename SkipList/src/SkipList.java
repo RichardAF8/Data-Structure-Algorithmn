@@ -16,7 +16,8 @@ public class SkipList {
 		head.get(0).next = tail.get(0);
 		rand = new Random();
 	}
-
+        
+	//flips a coin
 	public boolean roll() {
 		return rand.nextInt(2) == 1 ? false : true;
 	}
